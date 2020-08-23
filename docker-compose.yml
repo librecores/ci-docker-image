@@ -1,7 +1,7 @@
 version: "2.0"
 services:
   librecores-ci:
-    image: librecores/ci:2020.6-rc1
+    image: librecores/ci:2020.6
     build:
       context: .
       args:

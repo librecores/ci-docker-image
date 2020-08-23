@@ -19,7 +19,7 @@ This is a base image which includes common EDA tools.
 
 ### Versions
 
-#### 2020.6-rc1
+#### 2020.6
 
 - cocotb: 1.3.1
 - FuseSoC: 1.10

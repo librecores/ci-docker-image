@@ -100,7 +100,9 @@ LABEL Description="This is the default LibreCores CI Image" Vendor="Librecores" 
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python3 python3-pip python-is-python3 perl git ccache \
-    libtcl
+    libtcl \
+    gcc-riscv64-linux-gnu g++-riscv64-linux-gnu \
+    libelf-dev
 
 ARG FUSESOC_VERSION
 RUN pip3 install fusesoc==${FUSESOC_VERSION}
