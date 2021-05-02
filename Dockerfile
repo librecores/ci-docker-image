@@ -60,7 +60,7 @@ RUN make install
 FROM ubuntu:20.04 as verible-builder
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y wget
 ARG VERIBLE_VERSION
-RUN wget https://github.com/google/verible/releases/download/${VERIBLE_VERSION}/verible-${VERIBLE_VERSION}-Ubuntu-19.10-eoan-x86_64.tar.gz  -O verible.tar.gz
+RUN wget https://github.com/google/verible/releases/download/${VERIBLE_VERSION}/verible-${VERIBLE_VERSION}-Ubuntu-20.04-focal-x86_64.tar.gz  -O verible.tar.gz
 RUN mkdir /opt/verible
 RUN tar xzf verible.tar.gz -C /opt/verible --strip 1
 

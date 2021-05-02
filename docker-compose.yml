@@ -1,15 +1,16 @@
 version: "2.0"
 services:
   librecores-ci:
-    image: librecores/ci:2020.6
+    image: librecores/ci:2021.6-rc1
     build:
       context: .
       args:
-        COCOTB_VERSION: "1.3.1"
-        FUSESOC_VERSION: "1.10"
-        ICARUS_VERSION: "10_3"
-        PYTEST_VERSION: "5.4.3"
+        COCOTB_VERSION: "1.5.1"
+        FUSESOC_VERSION: "1.12.0"
+        ICARUS_VERSION: "11_0"
+        OPENLANE_VERSION: "0.12"
+        PYTEST_VERSION: "6.2.3"
         TAPPY_VERSION: "3.0"
-        VERIBLE_VERSION: "v0.0-440-gb3da8ae"
-        VERILATOR_VERSION: "4.036"
+        VERIBLE_VERSION: "v0.0-1203-ge56b205"
+        VERILATOR_VERSION: "4.202"
         YOSYS_VERSION: "0.9"
