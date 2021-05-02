@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+
+def getenv(name):
+    var = os.environ.get(name)
+    if not var:
+        print(f"Error: Openlane backend requires environment variable '{name}'")
+        exit(1)
+    return var
+
+pdk_root = getenv('PDK_ROOT')
+(build_root, work) = os.path.split(os.getcwd())
+
+image = "efabless/openlane:v{}".format(getenv('OPENLANE_VERSION'))
+
+prefix = ["docker", "run",
+            "-v", f"{pdk_root}:{pdk_root}",
+            "-v", f"{build_root}:/project",
+            "-e", f"PDK_ROOT={pdk_root}",
+            "-u", f"{os.getuid()}:{os.getgid()}",
+            "-w", f"/project/{work}",
+            image]
+sys.exit(subprocess.call(prefix+sys.argv[1:]))
+

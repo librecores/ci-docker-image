@@ -102,7 +102,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python3 python3-pip python-is-python3 perl git ccache \
     libtcl \
     gcc-riscv64-linux-gnu g++-riscv64-linux-gnu \
-    libelf-dev
+    libelf-dev \
+    docker.io
 
 ARG FUSESOC_VERSION
 RUN pip3 install fusesoc==${FUSESOC_VERSION}
@@ -128,3 +129,6 @@ ENV PATH=/opt/verible/bin:${PATH}
 COPY --from=yosys-builder /opt/yosys /opt/yosys
 ENV PATH=/opt/yosys/bin:${PATH}
 
+ARG OPENLANE_VERSION
+ENV OPENLANE_VERSION=${OPENLANE_VERSION}
+COPY scripts/openlane /usr/local/bin
